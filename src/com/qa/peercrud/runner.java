@@ -31,8 +31,10 @@ public class runner {
 				String lastname = sc.nextLine();
 
 				cd.createUser(username, password, firstname, lastname);
+				break;
 			case "read":
 				cd.readUsers();
+				break;
 			case "update":
 				System.out.println("column to set: ");
 				String set = sc.nextLine();
@@ -46,10 +48,12 @@ public class runner {
 				System.out.println("is equal to: ");
 				String whereis = sc.nextLine();
 				cd.updateusers(set, setto, where, whereis);
+				break;
 			case "delete":
 				System.out.println("Which user ID to delete?");
 				int id = sc.nextInt();
 				cd.deleteuser(id);
+				break;
 			}
 			
 		case "products":
@@ -66,8 +70,10 @@ public class runner {
 				int stock = sc.nextInt();
 
 				pd.addProducts(pname, pprice, stock);
+				break;
 			case "read":
 				pd.viewProducts();
+				break;
 			case "update":
 				System.out.println("column to set: ");
 				String set = sc.nextLine();
@@ -81,10 +87,13 @@ public class runner {
 				System.out.println("is equal to: ");
 				String whereis = sc.nextLine();
 				pd.updateProducts(set, setto, where, whereis);
+				;
+				break;
 			case "delete":
 				System.out.println("Which product ID to delete?");
 				int id = sc.nextInt();
 				pd.deleteProducts(id);
+				break;
 			}
 			
 		case "orders":
@@ -104,9 +113,11 @@ public class runner {
 				double price = sc.nextDouble();
 
 				od.createOrders(productID, userID, quantity, price);
+				break;
 
 			case "read":
 				od.readOrders();
+				break;
 
 			case "update":
 				System.out.println("column to set: ");
@@ -121,11 +132,13 @@ public class runner {
 				System.out.println("is equal to: ");
 				String whereis = sc.nextLine();
 				od.updateOrders(set, setto, where, whereis);
+				break;
 
 			case "delete":
-				System.out.println("Which user ID to delete?");
+				System.out.println("Which order ID to delete?");
 				int id = sc.nextInt();
 				od.deleteOrders(id);
+				break;
 			}
 		}
 		sc.close();
