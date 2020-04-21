@@ -11,12 +11,11 @@ public class runner {
 		String tablename = sc.nextLine();
 		System.out.println("Create, read, update, or delete");
 		String process = sc.nextLine();
-
-
+		
 		switch (tablename) {
 		case "users":
 			users cd = new users();
-			
+
 			switch (process) {
 			case "create":
 				System.out.println("customer's username: ");
@@ -32,10 +31,8 @@ public class runner {
 				String lastname = sc.nextLine();
 
 				cd.createUser(username, password, firstname, lastname);
-				break;
 			case "read":
 				cd.readUsers();
-				break;
 			case "update":
 				System.out.println("column to set: ");
 				String set = sc.nextLine();
@@ -49,15 +46,88 @@ public class runner {
 				System.out.println("is equal to: ");
 				String whereis = sc.nextLine();
 				cd.updateusers(set, setto, where, whereis);
-				break;
 			case "delete":
 				System.out.println("Which user ID to delete?");
 				int id = sc.nextInt();
 				cd.deleteuser(id);
-				break;
+			}
+			
+		case "products":
+			products pd = new products();
+			switch (process) {
+			case "create":
+				System.out.println("product Name: ");
+				String pname = sc.nextLine();
+
+				System.out.println("price: ");
+				double pprice = sc.nextDouble();
+
+				System.out.println("stock: ");
+				int stock = sc.nextInt();
+
+				pd.addProducts(pname, pprice, stock);
+			case "read":
+				pd.viewProducts();
+			case "update":
+				System.out.println("column to set: ");
+				String set = sc.nextLine();
+
+				System.out.println("set values to: ");
+				String setto = sc.nextLine();
+
+				System.out.println("where: ");
+				String where = sc.nextLine();
+
+				System.out.println("is equal to: ");
+				String whereis = sc.nextLine();
+				pd.updateProducts(set, setto, where, whereis);
+			case "delete":
+				System.out.println("Which product ID to delete?");
+				int id = sc.nextInt();
+				pd.deleteProducts(id);
+			}
+			
+		case "orders":
+			orders od = new orders();
+
+			switch (process) {
+			case "create":
+				System.out.println("Product ID: ");
+				int productID = sc.nextInt();
+
+				System.out.println("User ID: ");
+				int userID = sc.nextInt();
+				System.out.println("quantity: ");
+				int quantity = sc.nextInt();
+
+				System.out.println("price: ");
+				double price = sc.nextDouble();
+
+				od.createOrders(productID, userID, quantity, price);
+
+			case "read":
+				od.readOrders();
+
+			case "update":
+				System.out.println("column to set: ");
+				String set = sc.nextLine();
+
+				System.out.println("set values to: ");
+				String setto = sc.nextLine();
+
+				System.out.println("where: ");
+				String where = sc.nextLine();
+
+				System.out.println("is equal to: ");
+				String whereis = sc.nextLine();
+				od.updateOrders(set, setto, where, whereis);
+
+			case "delete":
+				System.out.println("Which user ID to delete?");
+				int id = sc.nextInt();
+				od.deleteOrders(id);
 			}
 		}
 		sc.close();
-
 	}
 }
